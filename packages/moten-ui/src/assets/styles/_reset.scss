@@ -1,0 +1,73 @@
+.moten-ui {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  a {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects;
+    &:active,
+    &:hover,
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  img {
+    display: block;
+  }
+
+  input[type='radio'],
+  input[type='checkbox'] {
+    border: 0;
+  }
+
+  button,
+  input {
+    overflow: visible;
+  }
+
+  input {
+    -webkit-appearance: none;
+    word-break: normal;
+    box-shadow: none;
+  }
+
+  input,
+  button,
+  select,
+  optgroup,
+  textarea {
+    margin: 0;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: inherit;
+    border-radius: 0;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  a,
+  area,
+  button,
+  [role='button'],
+  input:not([type='range']),
+  label,
+  select,
+  summary,
+  textarea {
+    touch-action: manipulation;
+  }
+}

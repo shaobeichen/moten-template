@@ -1,0 +1,68 @@
+{
+    "name": "@moten/ui",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "main": "./dist/vue3/moten.umd.cjs",
+    "module": "./dist/vue3/moten.js",
+    "types": "./dist/vue3/main.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/vue3/moten.js",
+            "require": "./dist/vue3/moten.umd.cjs",
+            "types": "./dist/vue3/main.d.ts"
+        },
+        "./style": {
+            "import": "./dist/vue3/style.css",
+            "require": "./dist/vue3/style.css"
+        },
+        "./vue2": {
+            "import": "./dist/vue2/moten.js",
+            "require": "./dist/vue2/moten.umd.cjs",
+            "types": "./dist/vue2/main.d.ts"
+        },
+        "./vue2/style": {
+            "import": "./dist/vue2/style.css",
+            "require": "./dist/vue2/style.css"
+        }
+    },
+    "scripts": {
+        "dev": "pnpm switch:vue3 && vue-tsc && vite build --watch",
+        "build": "pnpm clear:dist && pnpm build:vue3 && pnpm build:vue2",
+        "build:vue3": "pnpm switch:vue3 && vue-tsc && vite build",
+        "build:vue2": "pnpm switch:vue2 && vue-tsc && vite build",
+        "switch:vue3": "vue-demi-switch 3 vue3",
+        "switch:vue2": "vue-demi-switch 2 vue2",
+        "clear": "rimraf dist ./node_modules",
+        "clear:dist": "rimraf dist",
+        "test": "pnpm switch:vue3 && vitest --run",
+        "coverage": "pnpm switch:vue3 && vitest run --coverage"
+    },
+    "dependencies": {
+        "@vue/composition-api": "^1.7.2",
+        "vue-demi": "^0.14.7",
+        "vue2": "npm:vue@~2.6.14",
+        "vue2.7": "npm:vue@~2.7.16",
+        "vue3": "npm:vue@~3"
+    },
+    "devDependencies": {
+        "@sinclair/typebox": "^0.32.31",
+        "@types/node": "^20.12.12",
+        "@vitejs/plugin-vue": "^5.0.4",
+        "@vitest/coverage-v8": "^1.6.0",
+        "@vue/compiler-sfc": "^3.4.27",
+        "@vue/test-utils": "^2.4.6",
+        "autoprefixer": "^10.4.19",
+        "jsdom": "^24.1.0",
+        "postcss": "^8.4.38",
+        "rimraf": "^5.0.7",
+        "sass": "^1.77.2",
+        "tailwindcss": "^3.4.3",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0",
+        "vite-plugin-dts": "^3.9.1",
+        "vite-plugin-vue2": "^2.0.3",
+        "vitest": "^1.6.0",
+        "vue-tsc": "^2.0.6"
+    }
+}
